@@ -1,0 +1,319 @@
+/*ATG-Ui versão 2.25 © Andjeckson - 2021*/
+
+
+
+
+:root{
+  transition: .3s;
+  --bg: #fff;
+  --checkbox-checked-color: #8B95FF;
+  --checkbox-color: #ffffff;
+  --radio-checked-color: #8B95FF;
+  --input-focus-color: #8B95FF;
+  --switch-checked-color: #8B95FF;
+  --switch-circle-color:#ffffff;
+  --range-width: 200px;
+  --range-thumb-color: #A7AEFF;
+  --btn-bg: #2738F1;
+}
+
+
+
+@keyframes touch{
+ 0%{
+   box-shadow: 0 0 0px 0.1rem #eee;
+ }
+ 100%{
+    box-shadow: 0 0 0px 0.3rem #eee;
+  }
+}
+
+@keyframes FadeIn{
+ 0%{
+  opacity: 0.1;
+ }
+ 100%{
+  opacity: 1;
+  }
+}
+
+
+/*----------input type text ------------*/
+input[type*=text],input[type*=search],input[type*=tel],input[type*=email],input[type*=number]{
+  margin-top: 3%;
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  border: 2px #aaa solid;
+  color: #aaa;
+  border-radius: 0.5rem;
+  outline: none;
+  text-align: center;
+  transition: .2s ease-in-out;
+  padding-top: 2%;
+  background: transparent;
+  margin-bottom: 7%;
+}
+
+
+input[type*=text]:focus,input[type*=search]:focus,input[type*=number]:focus,input[type*=email]:focus,input[type*=number]:focus{
+  border-color: var(--input-focus-border-color);
+  color: var(--input-focus-color);
+}
+
+
+.atg-ui-input input{
+  margin-top: 2%;
+  position: relative;
+  height: 1vh;
+  width: 80%;
+  border: 2px #aaa solid;
+  color: #aaa;
+  border-radius: 0.5rem;
+  outline: none;
+  text-align: center;
+  transition: .2s ease-in-out;
+  padding: 1rem;
+  background: inherit;
+  margin-bottom: 2rem;
+}
+
+.atg-ui-input{
+  background: inherit;
+  display: inline-block;
+}
+.atg-ui-input input:focus{
+  border-color: var(--input-focus-border-color);
+  color: var(--input-focus-color);
+}
+
+.atg-ui-input input:focus ~ label{
+  color: var(--input-focus-color);
+  margin-top: -1%;
+}
+
+
+.atg-ui-input label{
+  padding-left: .5rem;
+  padding-right: .5rem;
+  position: absolute;
+  left: 7%;
+  background: var(--bg);
+  color: #757575;
+  transition: .3s;
+  margin-top: 4%;
+}
+
+.atg-ui-input input:valid~label{
+  margin-top: -1%;
+}
+
+
+
+/*-------------- checkbox-ui-------------*/
+
+
+.atg-ui-checkbox[type*=checkbox]{
+  margin-top: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  background: var(--checkbox-color);
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 0.3rem;
+  border: 1px #757575 solid;
+  outline: none;
+  transition: .1s ease-in-out;
+  border: 1px #757575 solid;
+ 
+}
+
+.atg-ui-checkbox[type*=checkbox]:active{
+  box-shadow: 0 0 0 5px #eee ;
+}
+
+.atg-ui-checkbox[type*=checkbox]:after{
+  transition: .3s ease-in-out;
+  content:'';
+  position: absolute;
+  display: block;
+  height: 60%;
+  width: 10%;
+  left: 10%;
+  top: 7%;
+  border-bottom: 3px #fff solid;
+  border-left: 3px #fff solid;
+  opacity: 0;
+  transform: rotate(-40deg)
+}
+
+.atg-ui-checkbox[type*=checkbox]:checked[type*=checkbox]:after{
+    content: 0;
+    width: 60%;
+    height: 35%;
+    opacity: 1;
+}
+
+.atg-ui-checkbox[type*=checkbox]:active{
+ animation: touch .1s;
+}
+
+.atg-ui-checkbox[type*=checkbox]:checked[type*=checkbox]{
+ animation: touch .3s;
+ background: var(--checkbox-checked-color);
+ border-color: var(--checkbox-checked-color);
+}
+
+/*------------- switch ui----------------*/
+
+.atg-ui-switch[type*=checkbox]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 0%;
+  margin-left: 3%;
+  position: absolute;
+  height: 1rem;
+  width:  2.5rem;
+  border: none;
+  color: #aaa;
+  border-radius: 5rem;
+  outline: none;
+  text-align: center;
+  transition: .2s ease-in-out;
+  padding: 0;
+  background: inherit;
+  margin-bottom: 7%;
+  background: #eee;
+}
+
+.atg-ui-switch:after{
+  content:'';
+  position: absolute;
+  height: 130%;
+  width: 53%;
+  transform: translateX(-120%);
+  margin-top: -6%;
+  border-radius: 5rem;
+  background: var(--switch-circle-color);
+  box-shadow: 0 0 10px 0 #757575;
+  transition: .3s;
+  
+}
+.atg-ui-switch:checked[type*=checkbox]{
+  background: var(--switch-checked-color);
+  animation: touch .3s ease-in-out;
+}
+
+.atg-ui-switch:checked[type*=checkbox]:after{
+  transform:translateX(16%);
+}
+
+.atg-ui-switch:active[type*=checkbox]{
+    box-shadow: 0 0 0 5px #eee;
+}
+
+
+/* --------------- radio-ui--------------*/
+
+
+.atg-ui-radio[type*=radio]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 1.3rem;
+  width: 1.3rem;
+  background: #fff;
+  border: 1px #757575 solid;
+  outline: none;
+  border-radius: 1rem;
+  transition: .3s;
+  padding: 0;
+  margin: 0;
+}
+
+
+.atg-ui-radio[type*=radio]:after{
+  content:'';
+  position: absolute;
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 0.8rem;
+  top: 18%;
+  left: 15%;
+  background: transparent;
+  transition: .5s;
+}
+
+.atg-ui-radio[type*=radio]:active{
+  animation: touch 0.1s;
+  box-shadow: 0 0 0 7px #eee ;
+}
+
+
+
+.atg-ui-radio[type*=radio]:checked[type*=radio]{
+    border: .1rem var(--radio-checked-color) solid
+}
+
+.atg-ui-radio[type*=radio]:checked[type*=radio]:after{
+  content: '';
+  background: var(--radio-checked-color);
+}
+
+/*------------range ui-----------------*/
+.atg-ui-range[type*=range]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #eee;
+  height: .5rem;
+  width: var(--range-width);
+  border-radius: 2rem;
+}
+
+.atg-ui-range[type*=range]::-ms-track{
+  -webkit-appearance: none;
+  background: var(--range-thumb-color);
+}
+
+.atg-ui-range[type*=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 1rem;
+  background: var(--range-thumb-color);
+}
+
+/*------------atg-ui-title-------------*/
+
+.atg-ui-title{
+  text-align: center;
+}
+
+
+/* -------------button----------------*/
+
+button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 2%;
+  border: none;
+  outline:  none;
+  box-shadow: 2px 2px 2px 0 #757575;
+  background: #eee;
+}
+
+.atg-ui-btn{
+  background: var(--btn-bg);
+  color: #eee;
+  border-radius: 0.3rem;
+}
+
+button:active{
+  box-shadow: 0 0 0 0 #000;
+}
